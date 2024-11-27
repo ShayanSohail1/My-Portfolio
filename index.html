@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="shortcut icon" href="favicon-16x16.png" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shayan Sohail - FullStack Web Developement</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Apply custom font */
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Keyframe Animations */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+
+    @keyframes parallax {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    /* Add Animations */
+    .fade-in {
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .float {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .parallax {
+      animation: parallax 3s ease-in-out infinite;
+    }
+
+    .hover-scale {
+      transition: transform 0.4s ease-in-out, box-shadow 0.3s ease;
+    }
+
+    .hover-scale:hover {
+      transform: scale(1.1);
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* Strong shadow effect */
+    }
+
+    /* Dark Purple Theme Colors */
+    body {
+      background-color: #2d1a62; /* Dark purple background */
+      color: #e2e8f0; /* Light text */
+    }
+
+    header, section {
+      background-color: #3b2563; /* Slightly lighter purple for sections */
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    a {
+      color: #9d4edd; /* Highlighted link color */
+    }
+
+    a:hover {
+      color: #b42bff;
+    }
+
+    /* Parallax and hover effects */
+    img {
+      width: 100%;
+      height: auto;
+      max-width: 150px; /* Reduced image size */
+      margin-bottom: 1rem;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    /* Logo Styling */
+    .logo {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #9d4edd; /* Purple color */
+      letter-spacing: 2px; /* Spacing between letters */
+      text-transform: uppercase;
+      transition: all 0.3s ease-in-out; /* Smooth transition for hover effect */
+    }
+
+    /* Hover effect on Logo */
+    .logo:hover {
+      color: #b42bff; /* Change color on hover */
+      transform: scale(1.1); /* Slightly scale up on hover */
+    }
+
+    /* Navbar Styling */
+    nav a {
+      text-transform: uppercase;
+      font-weight: 500;
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #b42bff;
+      transform: scale(1.1);
+    }
+
+    /* Mobile responsive adjustments */
+    @media screen and (max-width: 768px) {
+      .logo {
+        font-size: 1.5rem; /* Adjust logo size for mobile */
+      }
+
+      .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+    }
+
+    /* Navbar animations */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Card Hover Animation */
+    .card:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease-in-out;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Mini Icons for Languages in 'What I Do' Section */
+    .tech-icon {
+      width: 50px;  /* Increased icon size */
+      height: 50px;
+      margin-right: 8px;
+      vertical-align: middle;
+      transition: transform 0.3s ease;
+    }
+
+    .tech-icon:hover {
+      transform: scale(1.2); /* Hover effect for icons */
+    }
+     /* Keyframe Animations */
+     @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-25px);
+      }
+    }
+
+    @keyframes parallax {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
+    }
+
+    @keyframes wave {
+      0%, 100% {
+        transform: rotate(0deg);
+      }
+      25% {
+        transform: rotate(10deg);
+      }
+      50% {
+        transform: rotate(-10deg);
+      }
+      75% {
+        transform: rotate(5deg);
+      }
+    }
+
+    /* Add Animations */
+    .fade-in {
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .float {
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .parallax {
+      animation: parallax 3s ease-in-out infinite;
+    }
+
+    .typing {
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 3px solid #e2e8f0;
+      width: 0;
+      animation: typing 3s steps(20) 1s 1 normal both;
+    }
+
+    .hover-scale {
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+    }
+
+    .hover-scale:hover {
+      transform: scale(1.1);
+      box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+    }
+
+    /* Dark Purple Theme Colors */
+    body {
+      background-color: #2d1a62; /* Dark purple background */
+      color: #e2e8f0; /* Light text */
+    }
+
+    header, section {
+      background-color: #3b2563; /* Slightly lighter purple for sections */
+      border-radius: 0.5rem;
+      margin-bottom: 2rem; /* Larger margin between sections */
+    }
+
+    a {
+      color: #9d4edd; /* Highlighted link color */
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    a:hover {
+      color: #b42bff;
+      transform: scale(1.1); /* Hover effect */
+    }
+
+    /* Navbar Styling */
+    nav a {
+      text-transform: uppercase;
+      font-weight: 500;
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #b42bff;
+      transform: scale(1.1);
+    }
+
+    /* Mobile responsive adjustments */
+    @media screen and (max-width: 768px) {
+      .logo {
+        font-size: 1.5rem; /* Adjust logo size for mobile */
+      }
+
+      .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+    }
+
+    /* Navbar animations */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Card Hover Animation */
+    .card:hover {
+      transform: scale(1.1);
+      transition: transform 0.3s ease-in-out;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Strong shadow effect */
+    }
+
+    /* Mini Icons for Languages in 'What I Do' Section */
+    .tech-icon {
+      width: 60px;  /* Increased icon size */
+      height: 60px;
+      margin-right: 12px;
+      vertical-align: middle;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .tech-icon:hover {
+      transform: scale(1.3); /* Bigger hover effect for icons */
+      opacity: 0.8; /* Slight opacity effect */
+    }
+
+    /* Hand Wave Animation */
+    .hand-wave {
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .hand-wave:hover {
+      animation: wave 1s ease-in-out infinite;
+    }
+  /* Back to Top Button */
+  #back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #9d4edd;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      padding: 10px 15px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      z-index: 1000;
+    }
+
+    #back-to-top:hover {
+      background-color: #b42bff;
+      transform: scale(1.1); /* Hover effect for the button */
+    }
+     /* Typing Effect Animation */
+     @keyframes typing {
+      0% {
+        width: 0;
+      }
+      100% {
+        width: 100%;
+      }
+    }
+
+    /* Apply the typing animation */
+    .typing {
+      display: inline-block;
+      overflow: hidden; 
+      white-space: nowrap;
+      border-right: 0.15em solid #9d4edd;
+      width: 0;
+      animation: typing 4s steps(40) 1s 1 normal both;
+    }
+
+    /* Adjust font size for responsiveness */
+    .responsive-text {
+      font-size: 1.25rem; /* Default size for small screens */
+    }
+
+    @media screen and (min-width: 768px) {
+      .responsive-text {
+        font-size: 2rem; /* Medium screens */
+      }
+    }
+
+    @media screen and (min-width: 1024px) {
+      .responsive-text {
+        font-size: 2.5rem; /* Larger screens */
+      }
+    }
+    .responsive-text {
+    font-size: 1.5rem; /* Default font size */
+    line-height: 1.4; /* Make sure lines are not too spaced */
+    word-wrap: break-word; /* Break long words and wrap text */
+    word-break: break-word; /* Force word breaking when necessary */
+    width: 100%; /* Ensure full width */
+  }
+   /* Fade-In Animation */
+   @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  /* Slide-In Animation */
+  @keyframes slideIn {
+    0% {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  /* Applying the animations */
+  .animate-fade-in {
+    animation: fadeIn 2s ease-in-out;
+  }
+
+  .animate-slide-in {
+    animation: slideIn 1.5s ease-out forwards;
+  }
+  </style>
+</head>
+<body class="leading-normal tracking-normal">
+
+  </style>
+</head>
+<link rel="icon" href="/path/to/favicon.png?v=1">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<body class="leading-normal tracking-normal">
+  <!-- Header Section -->
+  <header class="fixed w-full z-10 top-0 shadow-md py-4 fade-in">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <!-- Logo -->
+      <div class="logo">
+        Shayan Sohail
+      </div>
+      <!-- Navbar Links -->
+      <nav class="space-x-6 nav-links">
+        <a href="#skills" class="hover:text-purple-300">Skills</a>
+        <!-- <a href="#work" class="hover:text-purple-300">Work Experience</a> -->
+        <a href="#achievements" class="hover:text-purple-300">What I Can Help You With</a>
+        <a href="#contact" class="hover:text-purple-300">Contact Me</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Section -->
+  <main class="mt-20">
+    <!-- Intro Section -->
+    <section class="text-center py-16 fade-in">
+      <h1 class="text-5xl font-bold text-purple-400">Hi, I'm Shayan Sohail !</h1>
+      <img alt="👋" draggable="false" src="pngwing.com.png" class="hand-wave" style="height: 80px; position: relative; left: 390px; bottom: 73px; width: 100px; margin: 0px 0.05em 0px 0.1em; vertical-align: -0.1em;">
+      <!-- Add 'Hello There' text with animation -->
+       <div class="responsive-text">
+      <h2 class="text-center font-semibold text-purple-400 mt-6 typing responsive-text">
+        "Hello there! 👋 I’m so glad you're here. Let’s create something incredible together in this space of creativity and innovation!" <style>
+          .h2{
+            word-wrap: break-word;
+          }
+        </div>
+        </style>
+      </h2>
+    </section>
+      <button id="back-to-top" onclick="scrollToTop()">↑</button>
+      <p class="text-lg text-gray-300 mt-4 max-w-xl mx-auto animate-fade-in animate-slide-in">
+        A passionate Front-End Developer skilled in HTML, CSS, JavaScript, and with some experience in Back-End and Database Management (React, Express, MongoDB, Node.js).
+      </p>
+      <div class="flex justify-center space-x-4 mt-6 fade-in">
+        <a href="https://www.fiverr.com/shayan_sohaill/buying?source=avatar_menu_profile" class="text-purple-400 hover:text-purple-300">Fiverr</a>
+        <a href="https://github.com/ShayanSohail1" class="text-purple-400 hover:text-purple-300">GitHub</a>
+        <a href="https://www.upwork.com/freelancers/~011a1fa222d8345631" class="text-purple-400 hover:text-purple-300">Upwork</a>
+      </div>
+      <!-- 2D Image Added with Animation -->
+      <img src="undraw_web_development_0l6v.svg" alt="Developer Illustration" class="mx-auto mt-10 float hover-scale parallax"
+      style="max-width: 920px;"> 
+
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16">
+      <div class="container mx-auto text-center fade-in">
+        <h2 class="text-3xl font-bold text-purple-400">What I Do</h2>
+        <p class="text-gray-300 mt-4">I specialize in Front-End Development, exploring the latest tech stacks, and I also have a solid understanding of some Back-End technologies.</p>
+        <div class="mt-8 flex flex-wrap justify-center fade-in">
+          <span class="bg-purple-600 text-gray-100 rounded-full px-4 py-2 mx-2 mt-2">
+            <img src="https://img.icons8.com/color/48/000000/html-5.png" alt="HTML Icon" class="tech-icon"> HTML
+          </span>
+          <span class="bg-purple-600 text-gray-100 rounded-full px-4 py-2 mx-2 mt-2">
+            <img src="https://img.icons8.com/color/48/000000/css3.png" alt="CSS Icon" class="tech-icon"> CSS
+          </span>
+          <span class="bg-purple-600 text-gray-100 rounded-full px-4 py-2 mx-2 mt-2">
+            <img src="https://img.icons8.com/color/48/000000/javascript.png" alt="JavaScript Icon" class="tech-icon"> JavaScript
+          </span>
+          <span class="bg-purple-600 text-gray-100 rounded-full px-4 py-2 mx-2 mt-2">
+            <img src="pngwing.com (1).png" alt="React Icon" class="tech-icon"> React
+          </span>
+          <span class="bg-purple-600 text-gray-100 rounded-full px-4 py-2 mx-2 mt-2">
+            <img src="https://img.icons8.com/color/48/000000/nodejs.png" alt="Node.js Icon" class="tech-icon"> Node.js
+          </span>
+          <span class="bg-purple-600 text-gray-100 rounded-full px-4 py-2 mx-2 mt-2">
+            <img src="https://img.icons8.com/color/48/000000/mongodb.png" alt="MongoDB Icon" class="tech-icon"> MongoDB
+          </span>
+          <span class="bg-purple-600 text-gray-100 rounded-full px-4 py-2 mx-2 mt-2">
+            <img src="https://img.icons8.com/color/48/000000/express.png" alt="Express Icon" class="tech-icon"> Express
+          </span>
+        </div>
+        <!-- 2D Image for Skills Section -->
+        <img src="undraw_web_developer_re_h7ie.svg" alt="React Illustration" class="mt-10 mx-auto hover-scale parallax" style="max-width: 820px;"> <!-- Reduced size -->
+      </div>
+    </section>
+
+    <!-- What I Can Help You With Section -->
+    <section id="achievements" class="py-16 fade-in">
+      <div class="container mx-auto text-center">
+        <h2 class="text-3xl font-bold text-purple-400">What I Can Help You With</h2>
+        <p class="mt-4 text-gray-300">If you're looking for someone to help with building scalable front-end systems, creating dynamic user interfaces, or implementing simple backend features, I can help!</p>
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 card">
+            <h3 class="text-lg font-bold text-gray-100">Front-End Development</h3>
+            <p class="text-gray-300 mt-2">I specialize in building intuitive and responsive front-end systems using HTML, CSS, and JavaScript.</p>
+            <!-- 2D Image for Front-End Development -->
+            <img src="undraw_static_assets_rpm6.svg" alt="Front-End Development" class="mt-4 mx-auto hover-scale" style="max-width: 300px;">
+          </div>
+          <div class="bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 card">
+            <h3 class="text-lg font-bold text-gray-100">Back-End & Database</h3>
+            <p class="text-gray-300 mt-2">I can assist with basic server-side functionalities using Express, Node.js, and MongoDB to build reliable backend systems.</p>
+            <!-- 2D Image for Backend Development -->
+            <img src="undraw_freelancer_re_irh4.svg" alt="Backend and Database" class="mt-4 mx-auto hover-scale" style="max-width: 300px;">
+          </div>
+          <div class="bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 card">
+            <h3 class="text-lg font-bold text-gray-100">Database Management</h3>
+            <p class="text-gray-300 mt-2">I help with managing and structuring databases, specifically with MongoDB and other NoSQL solutions.</p>
+            <!-- 2D Image for Database Management -->
+            <img src="undraw_maintenance_re_59vn.svg" alt="Database Management" class="mt-4 mx-auto hover-scale" style="max-width: 300px;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 fade-in">
+      <div class="container mx-auto text-center">
+        <h2 class="text-3xl font-bold text-purple-400">Connect with Me</h2>
+        <p class="mt-4 text-gray-300">I'm open for collaborations and opportunities. Reach out to me!</p>
+        <div class="mt-6 flex justify-center space-x-4">
+          <a href="https://www.fiverr.com/shayan_sohaill/buying?source=avatar_menu_profile" class="text-purple-400 hover:text-purple-300">Fiverr</a>
+          <a href="https://github.com/ShayanSohail1" class="text-purple-400 hover:text-purple-300">GitHub</a>
+          <a href="https://www.upwork.com/freelancers/~011a1fa222d8345631" class="text-purple-400 hover:text-purple-300">Upwork</a>
+        </div>
+      </div>
+    </section>
+    <script>
+      // Scroll to the top of the page
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }
+    </script>
+  </main>
+</body>
+</html>
